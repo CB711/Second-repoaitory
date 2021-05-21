@@ -1,0 +1,87 @@
+function setup() {
+	createCanvas(500, 400);
+}
+
+var [xpos, ypos, xspeed, yspeed] = [200, 200, 0, 0];
+var [yeet] = [8]
+
+function draw() {
+
+   if (mouseIsPressed) {
+    background(0, 0, 255);
+  } else {
+  background(0, 255, 222)
+	}
+  	if(mouseIsPressed && Math.sqrt((xpos-mouseX)**2+(ypos-mouseY)**2)<=25) {
+     background(255, 0, 0);
+    }
+    fill (9999999, 99, 9);
+    xpos += xspeed;
+	 ypos += yspeed;
+	fill(0);
+	text("Carlos", 25, 25);
+	text("Mouse", mouseX, mouseY);
+	fill(0, 255, 0);
+  
+  
+	ellipse(xpos, ypos, 50, 50);
+  fill(255, 0, 255)
+text("Billy", xpos, ypos);
+	
+
+  
+  
+ 
+  
+} 
+  
+
+
+function keyPressed() {
+	switch(keyCode) {
+		case 37:
+		case 65:
+			xspeed = -yeet;
+			break;
+		case 39:
+		case 68:
+			xspeed = yeet;
+			break;
+		case 38:
+		case 87:
+			yspeed = -yeet;
+			break;
+		case 40:
+		case 83:
+			yspeed = yeet;
+			break;
+      case 16:
+      yeet = 16;
+      	break;
+      
+	}
+}
+
+function keyReleased() {
+	switch(keyCode) {
+		case 37:
+		case 65:
+			xspeed = 0;
+			break;
+		case 39:
+		case 68:
+			xspeed = 0;
+			break;
+		case 38:
+		case 87:
+			yspeed = 0;
+			break;
+		case 40:
+		case 83:
+			yspeed = 0;
+			break;
+      case 16:
+      yeet = 8;
+      break;
+  }
+}
